@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/">
+      <img src="/Images/Logo.png" alt="Logo" style="width: 30px;">
+    </a>
+    <a class="btn btn-outline-light ml-auto"><i class="fa-solid fa-cart-shopping"></i></a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-4">
+    <h1>Carrito de Compras</h1>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Items del carrito se generarán dinámicamente aquí -->
+        </tbody>
+      </table>
+    </div>
+    <div class="text-right">
+      <h4>Total a Pagar: $<span id="total-price">0.00</span></h4>
+      <button class="btn btn-success">Proceder al Pago</button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Ejemplo de items en el carrito
+      const cartItems = [
+        {
+          nombre: 'Pizza Margherita',
+          descripcion: 'Tomate, mozzarella y albahaca fresca.',
+          precio: 180.00,
+          cantidad: 2,
+          imagen_url: '/Images/Pizza_Margherita.jpg'
+        },
+        {
+          nombre: 'Tiramisú',
+          descripcion: 'Un postre hecho con capas de bizcocho de soletilla empapado en café, crema de mascarpone y cacao en polvo.',
+          precio: 150.00,
+          cantidad: 1,
+          imagen_url: '/Images/Tiramisu.jpg'
+        }
+      ];
+
+      const cartTable = $('#cart-items');
+      let totalPrice = 0;
+
+      cartItems.forEach(item => {
+        const itemTotal = item.precio * item.cantidad;
+        totalPrice += itemTotal;
+
+        const row = `
+          <tr>
+            <td><img src="${item.imagen_url}" class="img-fluid" style="width: 50px;"></td>
+            <td>${item.nombre}</td>
+            <td>${item.descripcion}</td>
+            <td>$${item.precio.toFixed(2)}</td>
+            <td>${item.cantidad}</td>
+            <td>$${itemTotal.toFixed(2)}</td>
+            <td><button class="btn btn-danger btn-eliminar-item">Eliminar</button></td>
+          </tr>
+        `;
+        cartTable.append(row);
+      });
+
+      $('#total-price').text(totalPrice.toFixed(2));
+
+      // Evento para eliminar un item del carrito
+      $('.btn-eliminar-item').click(function() {
+        const row = $(this).closest('tr');
+        const price = parseFloat(row.find('td:eq(5)').text().replace('$', ''));
+        totalPrice -= price;
+        row.remove();
+        $('#total-price').text(totalPrice.toFixed(2));
+      });
+    });
+  </script>
+  
+</body>
+</html>

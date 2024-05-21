@@ -1,0 +1,58 @@
+body {
+  background-color: #ffede3;
+  margin: 0; /* Asegúrate de que no haya margen predeterminado */
+}
+
+.navbar {
+  background-color: #f2231f;
+}
+
+.sidebar {
+  background-color: #f2231f;
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 0; /* La barra lateral se pegará en la parte superior cuando se desplace */
+  height: calc(100vh); /* Altura de la pantalla menos la altura de la navbar */
+  overflow-y: auto; /* Añadir scroll si el contenido de la barra lateral es mayor que la altura disponible */
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 5px 0;
+}
+
+.sidebar a:hover {
+  background-color: #ff4c3b;
+}
+
+.card {
+  margin: 15px 0;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.btn-agregar-carrito {
+  background-color: #f2231f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-agregar-carrito:hover {
+  background-color: darkred;
+  color: white;
+}
+
