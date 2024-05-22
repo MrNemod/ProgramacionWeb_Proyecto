@@ -29,6 +29,10 @@ body {
   background-color: #ff4c3b;
 }
 
+#cart-count {
+  background-color: #f2231f;
+}
+
 .card {
   margin: 15px 0;
 }
@@ -36,6 +40,15 @@ body {
 .card img {
   height: 200px;
   object-fit: cover;
+}
+
+#notification {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .btn-agregar-carrito {

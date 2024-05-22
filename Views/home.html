@@ -15,6 +15,11 @@
   />
 </head>
 <body>
+  <!-- Notificacion al agregar al carrito -->
+  <div id="notification" class="alert alert-success">
+    Producto agregado al carrito.
+  </div>  
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="/">
@@ -24,7 +29,7 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" name="search-query" id="search-query">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
       </form>    
-    <a class="btn btn-outline-light ml-auto" href="/cart/"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a class="btn btn-outline-light ml-auto" href="/cart/"><span id="cart-count" class="badge badge-pill badge-primary">0</span><i class="fa-solid fa-cart-shopping"></i></a>
   </nav>
 
   <!-- Main Content -->

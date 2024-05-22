@@ -17,11 +17,18 @@ $(document).ready(function() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
   }
 
-  // Función para actualizar el contador del carrito en la barra de navegación (opcional)
+  // Función para actualizar el contador del carrito en la barra de navegación
   function actualizarContadorCarrito() {
-    const contadorCarrito = $('#contador-carrito');
-    contadorCarrito.text(carrito.length);
+    const contadorCarrito = $('#cart-count');
+    let totalProductos = 0;
+    carrito.forEach(item => {
+      totalProductos += item.cantidad;
+    });
+    contadorCarrito.text(totalProductos);
   }
+
+  // Cargar inicialmente el contador del carrito al cargar la página
+  actualizarContadorCarrito();
 
   // Función para cargar las comidas desde la base de datos
   function cargarComidas(categoria = null, tipo = null, query = null) {
@@ -126,10 +133,15 @@ $(document).ready(function() {
     // Guardar el carrito en el almacenamiento local (opcional)
     guardarCarritoEnLocalStorage();
 
-    // Actualizar el contador del carrito en la barra de navegación (opcional)
+    // Actualizar el contador del carrito en la barra de navegación
     actualizarContadorCarrito();
 
-    // Mostrar mensaje de éxito (opcional)
-    alert('¡El artículo se agregó al carrito!');
+    // Mostrar la notificación
+    $('#notification').fadeIn();
+
+    // Ocultar la notificación después de 2 segundos
+    setTimeout(function() {
+      $('#notification').fadeOut();
+    }, 1000);
   });
 });
