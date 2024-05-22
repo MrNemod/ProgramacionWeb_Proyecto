@@ -3,10 +3,15 @@
 
 ## Funcionalidades
 Visualización de Platos: Los usuarios pueden explorar una variedad de platos italianos auténticos.
+
 Carrito de Compras: Los usuarios pueden agregar platos al carrito y ver una simulación de los artículos seleccionados.
+
 Añadir Comidas al Carrito: Los usuarios pueden añadir platos específicos al carrito de compras.
+
 Crear Nueva Comida: Los administradores pueden crear nuevos platos para mostrar en la página.
+
 Base de Datos SQLite: La aplicación utiliza una base de datos SQLite (restaurante_italiano.db) para almacenar información sobre los platos.
+
 Tecnologías Utilizadas: HTML, CSS y JavaScript para el desarrollo front-end. Node.js para el servidor.
 ## Requisitos Previos
 Node.js instalado en tu máquina local.
