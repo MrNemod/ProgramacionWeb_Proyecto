@@ -16,7 +16,7 @@ $(document).ready(function() {
       carrito.forEach((item, index) => {
         const cartItem = `
           <div class="card mb-4 shadow-sm">
-            <img src="/${item.imagen_url}" class="card-img-top" alt="${item.nombre}">
+            <img src="${item.imagen_url}" class="card-img-top" alt="${item.nombre}">
             <div class="card-body">
               <h5 class="card-title">${item.nombre}</h5>
               <p class="card-text">${item.descripcion}</p>

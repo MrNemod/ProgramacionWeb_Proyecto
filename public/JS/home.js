@@ -24,16 +24,23 @@ $(document).ready(function() {
     }
 
     // Función para cargar las comidas desde la base de datos
-    function cargarComidas() {
+    function cargarComidas(categoria = null, tipo = null) {
       $.ajax({
         url: '/api/comidas',
         type: 'GET',
         success: function(response) {
-          // Manejar la respuesta del servidor
-          console.log(response); // Verificar la respuesta en la consola del navegador
-          
-          // Agregar las comidas al DOM
+          // Filtrar las comidas si se proporciona una categoría o tipo
+          if (categoria || tipo) {
+            response = response.filter(comida => {
+              return (!categoria || comida.categoria === categoria) && (!tipo || comida.tipo === tipo);
+            });
+          }
+
+          // Limpiar el grid de comidas
           const foodGrid = $('#food-grid');
+          foodGrid.empty();
+
+          // Agregar las comidas al DOM
           response.forEach(comida => {
             const card = `
               <div class="col-md-4">
@@ -61,6 +68,14 @@ $(document).ready(function() {
 
     // Llamar a la función para cargar las comidas al cargar la página
     cargarComidas();
+
+    // Manejar el evento click en los enlaces del sidebar
+    $(document).on('click', '.category, .type', function(e) {
+      e.preventDefault();
+      const categoria = $(this).data('category');
+      const tipo = $(this).data('type');
+      cargarComidas(categoria, tipo);
+    });
 
     // Manejar el evento click en el botón "Agregar al carrito"
     $(document).on('click', '.btn-agregar-carrito', function() {
@@ -94,4 +109,4 @@ $(document).ready(function() {
       // Mostrar mensaje de éxito (opcional)
       alert('¡El artículo se agregó al carrito!');
     });
-  });
+});
