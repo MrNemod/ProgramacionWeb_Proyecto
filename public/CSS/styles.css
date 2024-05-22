@@ -99,3 +99,11 @@ body {
 #pagar-btn {
   margin-left: 10px; /* Agregar un espacio a la izquierda del botón "Pagar" */
 }
+
+#btn-save-food {
+  background-color: #ff4c3b;
+}
+
+#btn-save-food:hover {
+  background-color: #f2231f;
+}

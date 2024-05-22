@@ -139,7 +139,7 @@ $(document).ready(function() {
     // Mostrar la notificación
     $('#notification').fadeIn();
 
-    // Ocultar la notificación después de 2 segundos
+    // Ocultar la notificación después de 1 segundo
     setTimeout(function() {
       $('#notification').fadeOut();
     }, 1000);

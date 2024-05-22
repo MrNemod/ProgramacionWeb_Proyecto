@@ -16,8 +16,8 @@ app.use(session({
 }));
 
 // Middleware para manejar datos JSON
-app.use(express.json()); // Agregar este middleware
-// app.use(bodyParser.json()); // Opcional, solo si usas body-parser
+//app.use(express.json()); // Agregar este middleware
+ app.use(bodyParser.json()); // Opcional, solo si usas body-parser
 
 // Configurar las rutas API
 app.use('/api/comidas', comidasRouter);
@@ -30,6 +30,11 @@ app.get('/', (req, res) => {
 // Ruta para servir `cart.html`
 app.get('/cart', (req, res) => {
   res.sendFile(path.join(__dirname, 'Views', 'cart.html'));
+});
+
+// Ruta para servir `new_food.html`
+app.get('/new-food', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Views', 'new_food.html'));
 });
 
 // Ruta para agregar una comida al carrito
