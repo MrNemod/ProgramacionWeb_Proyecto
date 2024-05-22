@@ -1,27 +1,19 @@
-const mysql = require('mysql');
+const sqlite3 = require('sqlite3').verbose();
 
-// Configuración de la conexión a la base de datos MySQL
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Luis3334',
-  database: 'restaurante_italiano'
-});
+// Configuración de la conexión a la base de datos SQLite
+const dbPath = 'restaurante_italiano.db';
+const connection = new sqlite3.Database(dbPath);
 
 // Conectar a la base de datos
-connection.connect((err) => {
-  if (err) {
-    console.error('Error al conectar a la base de datos: ' + err.stack);
-    return;
-  }
-  console.log('Conexión establecida con el ID: ' + connection.threadId);
+connection.serialize(() => {
+  console.log('Conexión establecida con la base de datos.');
 });
 
 // Función para ejecutar una consulta SQL con parámetros
 function executeQuery(query, params, callback) {
-  connection.query(query, params, (error, results, fields) => {
+  connection.all(query, params, (error, results) => {
     if (error) {
-      console.error('Error en la consulta SQL:', error.sqlMessage);
+      console.error('Error en la consulta SQL:', error.message);
       callback(error, null);
       return;
     }
