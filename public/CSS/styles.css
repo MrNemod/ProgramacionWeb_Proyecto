@@ -1,5 +1,6 @@
 body {
   background-color: #ffede3;
+  background-image: url("/Images/Paper.jpg");
   margin: 0; /* Asegúrate de que no haya margen predeterminado */
 }
 
