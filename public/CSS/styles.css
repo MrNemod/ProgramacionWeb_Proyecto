@@ -56,3 +56,32 @@ body {
   color: white;
 }
 
+.main-content {
+  text-align: center; /* Esto centrará el contenido horizontalmente */
+}
+
+.input-quantity{
+  max-width: 60px;
+}
+
+#total-container {
+  background-color: #ff4c3b;
+  max-width: 300px;
+  padding: 10px; /* Agregar un espacio interno de 10px al contenedor */
+  border-radius: 8px; /* Hacer las esquinas redondeadas */
+}
+
+#total-container p {
+  margin-right: 10px; /* Agregar un espacio a la derecha del texto "Total a pagar" */
+  font-weight: bold; /* Hacer el texto en negrita */
+  font-size: 16px; /* Aumentar el tamaño del texto */
+}
+
+#total-amount {
+  font-weight: bold; /* Hacer la cantidad en negrita */
+  font-size: 16px; /* Aumentar el tamaño de la cantidad */
+}
+
+#pagar-btn {
+  margin-left: 10px; /* Agregar un espacio a la izquierda del botón "Pagar" */
+}
