@@ -34,8 +34,8 @@
 
 El proyecto está organizado de la siguiente manera:
 
+```
 └── 📁Proyecto Programacion web
-
     └── package-lock.json
     └── package.json
     └── 📁public
@@ -50,14 +50,17 @@ El proyecto está organizado de la siguiente manera:
             └── Risotto.jpg
             └── Tiramisu.jpg
         └── 📁JS
+            └── cart.js
             └── comidas.js
             └── crudComida.js
+            └── home.js
     └── README.md
     └── restaurante_italiano.db
     └── server.js
     └── 📁Views
         └── cart.html
         └── home.html
+```
 
 ## Notas Adicionales
 
