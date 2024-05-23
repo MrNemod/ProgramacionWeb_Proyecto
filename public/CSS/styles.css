@@ -107,3 +107,36 @@ body {
 #btn-save-food:hover {
   background-color: #f2231f;
 }
+
+#floating-cart-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1; /* Asegura que esté por encima de otros elementos */
+}
+
+#floating-cart-btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #f2231f;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#floating-cart-btn a:hover {
+  background-color: #ff4c3b;
+}
+
+#floating-cart-btn span {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 12px;
+}
+

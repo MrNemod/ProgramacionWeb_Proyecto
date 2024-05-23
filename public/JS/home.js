@@ -20,12 +20,14 @@ $(document).ready(function() {
   // Función para actualizar el contador del carrito en la barra de navegación
   function actualizarContadorCarrito() {
     const contadorCarrito = $('#cart-count');
+    const contadorCarritoFlotante = $('#cart-count-floating');
     let totalProductos = 0;
     carrito.forEach(item => {
       totalProductos += item.cantidad;
     });
     contadorCarrito.text(totalProductos);
-  }
+    contadorCarritoFlotante.text(totalProductos);
+  }  
 
   // Cargar inicialmente el contador del carrito al cargar la página
   actualizarContadorCarrito();
@@ -144,4 +146,19 @@ $(document).ready(function() {
       $('#notification').fadeOut();
     }, 1000);
   });
+
+  // Controlar la visibilidad del carrito flotante en función del desplazamiento vertical
+  $(window).scroll(function() {
+    const scrollTop = $(window).scrollTop();
+    const scrollThreshold = 56; //Pixeles para aparecer/desaparecer carrito
+    const floatingCartBtn = $('#floating-cart-btn');
+
+    if (scrollTop > scrollThreshold) {
+      floatingCartBtn.fadeIn();
+    } else {
+      floatingCartBtn.fadeOut();
+    }
+  });
+  
+
 });
