@@ -9,6 +9,7 @@ Carrito de Compras: Los usuarios pueden agregar platos al carrito y ver una simu
 Añadir Comidas al Carrito: Los usuarios pueden añadir platos específicos al carrito de compras.
 
 Crear Nueva Comida: Los administradores pueden crear nuevos platos para mostrar en la página.
+    Desde http://localhost:3000/new-food/
 
 Base de Datos SQLite: La aplicación utiliza una base de datos SQLite (restaurante_italiano.db) para almacenar información sobre los platos.
 
